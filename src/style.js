@@ -26,6 +26,24 @@ const style = css`
     color: var(--primary-text-color);
   }
 
+  nobutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 0px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+
   .btn-seperate {
     margin-right: 10px;
   }
