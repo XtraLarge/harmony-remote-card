@@ -23,7 +23,7 @@ jobs:
       run: npm install --legacy-peer-deps
 
     - name: Run Build
-      run: npm run build
+      run: npm run build --openssl-legacy-provider
 
     - name: Commit dist folder
       run: |
