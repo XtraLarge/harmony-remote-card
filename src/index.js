@@ -230,17 +230,30 @@ class HarmonyRemoteCard extends LitElement {
         ${customCommands.map((cmd) => {
           const displayName = cmd.name || cmd;
 
-          // if we have hass service then check for rest of items needed and call service on click
-          const service = cmd.service;
-          if(service){
-            return html`
-            <button @click="${() => this.callService({ domain: cmd.domain, service, data: cmd.data  })}">
-              ${this.renderIcon(cmd.icon, cmd.hide_name)}
-              ${this.renderName(displayName, cmd.hide_name)}
-            </button>
-          `;
+          if (displayName === "") {
+            // if we have hass service then check for rest of items needed and call service on click
+            const service = cmd.service;
+            if(service){
+              return html`
+              <nobutton @click="${() => this.callService({ domain: cmd.domain, service, data: cmd.data  })}">
+                ${this.renderIcon(cmd.icon, cmd.hide_name)}
+                ${this.renderName(displayName, cmd.hide_name)}
+              </nobutton>
+            `;
+            }
           }
-
+          } else {
+            // if we have hass service then check for rest of items needed and call service on click
+            const service = cmd.service;
+            if(service){
+              return html`
+              <button @click="${() => this.callService({ domain: cmd.domain, service, data: cmd.data  })}">
+                ${this.renderIcon(cmd.icon, cmd.hide_name)}
+                ${this.renderName(displayName, cmd.hide_name)}
+              </button>
+            `;
+            }
+          }
           const command = cmd.command || cmd;
 
           return html`
