@@ -242,7 +242,7 @@ class HarmonyRemoteCard extends LitElement {
             `;
             }
           }
-          } else {
+          else {
             // if we have hass service then check for rest of items needed and call service on click
             const service = cmd.service;
             if(service){
